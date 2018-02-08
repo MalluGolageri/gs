@@ -11,7 +11,7 @@ public class SmallestSubArray {
 	private static int smallestSubArray(int[] arr, int x) {
 		int start = 0, end = 0;
 		int cursum = 0, minlength = arr.length+1;
-		int startIndex = 0;
+		//int startIndex = 0;
 		while (end < arr.length) {
 			while (cursum <= x && end < arr.length) {
 				cursum += arr[end++];
@@ -21,14 +21,14 @@ public class SmallestSubArray {
 				cursum -= arr[start++];
 				if (end - start < minlength && cursum >= x ) {
 					minlength = end - start;
-					startIndex = start;
+					//startIndex = start;
 				}				
 			}
 		}
-		System.out.println(startIndex);
-		for (int i = 0; i < minlength; i++) {
-			System.out.print(arr[startIndex + i] + ",");
-		}
+//		System.out.println(startIndex);
+//		for (int i = 0; i < minlength; i++) {
+//			System.out.print(arr[startIndex + i] + ",");
+//		}
 		return minlength;
 	}
 
