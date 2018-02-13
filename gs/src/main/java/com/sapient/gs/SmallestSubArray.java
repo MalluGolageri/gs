@@ -5,13 +5,13 @@ public class SmallestSubArray {
 
 	public static void main(String[] args) {
 		int[] arr = { 1, 3, 4, 5, 7, 8, 40, 34, 56, 20, 1, 3, 1, 1, 1, 1, 1, 1, 1 };
-		System.out.println("minlength:" + smallestSubArray(arr, 114));
+		System.out.println("minlength:" + smallestSubWithSum(arr, 114));
 	}
 
 	private static int smallestSubArray(int[] arr, int x) {
 		int start = 0, end = 0;
 		int cursum = 0, minlength = arr.length+1;
-		//int startIndex = 0;
+		int startIndex = 0;
 		while (end < arr.length) {
 			while (cursum <= x && end < arr.length) {
 				cursum += arr[end++];
@@ -21,14 +21,14 @@ public class SmallestSubArray {
 				cursum -= arr[start++];
 				if (end - start < minlength && cursum >= x ) {
 					minlength = end - start;
-					//startIndex = start;
+					startIndex = start;
 				}				
 			}
 		}
-//		System.out.println(startIndex);
-//		for (int i = 0; i < minlength; i++) {
-//			System.out.print(arr[startIndex + i] + ",");
-//		}
+		System.out.println(startIndex);
+		for (int i = 0; i < minlength; i++) {
+			System.out.print(arr[startIndex + i] + ",");
+		}
 		return minlength;
 	}
 
@@ -67,5 +67,34 @@ public class SmallestSubArray {
 		res = res + "]";
 		return "min len subarry is of size " + minlen + " from index " + startindex + " elemets " + res;
 	}
+	
+	static int smallestSubWithSum(int arr[], int x) 
+    {
+		int n=arr.length;
+        // Initialize current sum and minimum length
+        int curr_sum = 0, min_len = n + 1;
+ 
+        // Initialize starting and ending indexes
+        int start = 0, end = 0;
+        while (end < n) 
+        {
+            // Keep adding array elements while current sum
+            // is smaller than x
+            while (curr_sum <= x && end < n)
+                curr_sum += arr[end++];
+ 
+            // If current sum becomes greater than x.
+            while (curr_sum > x && start < n) 
+            {
+                // Update minimum length if needed
+                if (end - start < min_len)
+                    min_len = end - start;
+ 
+                // remove starting elements
+                curr_sum -= arr[start++];                
+            }
+        }
+        return min_len;
+    }
 
 }

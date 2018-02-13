@@ -1,3 +1,4 @@
+package com.sapient.gs;
 
 public class SecondSmallestInSortedRotatedArray {
 
