@@ -13,6 +13,7 @@ public class SmallestSubArray {
 		int cursum = 0, minlength = arr.length+1;
 		int startIndex = 0;
 		while (end < arr.length) {
+			
 			while (cursum <= x && end < arr.length) {
 				cursum += arr[end++];
 			}
