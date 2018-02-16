@@ -5,30 +5,32 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MinimumDistanceBWTwoWords {
-	
-	public static void main(String[] args) {	    
-	    String s="ABC is      XYZ heyy ABC";	    
-	    System.out.println(getMinimumDistance(s,"ABC","XYZ"));
+	public static void main(String[] args) {
+	    
+	    String s="heyy how    are you ? how you are doing?";
+	    String w1="how",w2="are";    
+	    System.out.println(getMinDIstance(s,w1,w2));
 	  }
 	  
-	  private static int getMinimumDistance(String s,String w1,String w2){	    
-	    int pos1=0,pos2=Integer.MAX_VALUE,distance=0,minDistance=Integer.MAX_VALUE;
-	    String[] words=s.split("\\s+");  	    
-	    for(String word:words){     
+	  private static int getMinDIstance(String s, String w1,String w2){   
+	    String words[]=s.split(" ");
+	    //System.out.println("words length:"+words.length);
+	    int d1=0,d2=Integer.MAX_VALUE,minDistance=Integer.MAX_VALUE,cur=0;
+	    for(String word:words){ 
+	      if(word.equals(" ")) cur++;
 	      if(word.equals(w1)){
-	        pos1=s.lastIndexOf(word) + (int) Math.ceil(word.length()/2.0);        
-	      }if(word.equals(w2)){
-	         pos2=s.lastIndexOf(word) + (int) Math.ceil(word.length()/2.0);        
+	        d1=cur + (int) Math.ceil(word.length()/2);                
 	      }
-	         
-	      distance=pos2-pos1;
-	      if(distance<0)
-	         distance=distance*-1;
-	      if(distance<minDistance)
-	         minDistance=distance;              
-	    }
+	      if(word.equals(w2)){
+	        d2=cur+ (int) Math.ceil(word.length()/2);               
+	      }      
+	      int dist=Math.abs(d2-d1);
+	      if(dist<minDistance)
+	          minDistance=dist;      
+	      cur=cur+word.length()+1;
+	    }  
+	    
+	    
 	    return minDistance;
 	  }
-	  
-
 }
