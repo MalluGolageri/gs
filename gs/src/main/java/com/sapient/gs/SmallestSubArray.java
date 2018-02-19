@@ -2,22 +2,21 @@ package com.sapient.gs;
 
 
 public class SmallestSubArray {
-
+	
 	public static void main(String[] args) {
 		int[] arr = { 1, 3, 4, 5, 7, 8, 40, 34, 56, 20, 1, 3, 1, 1, 1, 1, 1, 1, 1 };
-		System.out.println("minlength:" + smallestSubWithSum(arr, 114));
+		System.out.println("minlength:" + smallestSubArrayOld(arr, 114));
 	}
 
 	private static int smallestSubArray(int[] arr, int x) {
 		int start = 0, end = 0;
 		int cursum = 0, minlength = arr.length+1;
 		int startIndex = 0;
-		while (end < arr.length) {
-			
+		while (end < arr.length) {			
 			while (cursum <= x && end < arr.length) {
 				cursum += arr[end++];
 			}
-
+			
 			while (cursum >= x && start < arr.length) {
 				cursum -= arr[start++];
 				if (end - start < minlength && cursum >= x ) {
@@ -27,6 +26,7 @@ public class SmallestSubArray {
 			}
 		}
 		System.out.println(startIndex);
+		
 		for (int i = 0; i < minlength; i++) {
 			System.out.print(arr[startIndex + i] + ",");
 		}
@@ -36,12 +36,11 @@ public class SmallestSubArray {
 	public static String smallestSubArrayOld(int[] ar, int x) {
 		int minlen = ar.length;
 		int startindex = 0;
-
+		
 		int start = 0;
 		int end = 0;
 		int cursum = 0;
 		while (start <= end && end < ar.length) {
-
 			while ( cursum < x && end < ar.length) {
 				cursum += ar[end++];				
 			}
@@ -50,7 +49,7 @@ public class SmallestSubArray {
 //				minlen = end - start;
 //				startindex = start;
 //			}
-
+			
 			while (cursum >= x && start <= end && start < ar.length) {
 				cursum -= ar[start++];
 				if (end - start < minlen && x <= cursum) {
