@@ -12,20 +12,20 @@ public class MinimumDistanceBWTwoWords {
 	    String s="One office for loan of money for customs calc of goods , "
 		+ "which by a plain method be so ordered that " + "the merchant might with ease pay the highest "
 		+ "customes down, and so, by allowing the bank " + "four per cent advance, be first to secure "
-		+ "the $10 per cent which the king allows for prompt  one     true one";
+		+ "the $10 per cent which the king allows for prompt one     true one";
 
 	    String s1 = "one";
 	    String s2 = "true";
 
 	    System.out.println(getMinDIstance(s,s1,s2));	    
-	   // System.out.println(getMinDIstance(s,"office", "loan") == 10);
+	    System.out.println(getMinDIstance(s,"office", "loan") == 10);
 	    //System.out.println(getMinDIstance(s,"plain", "method") == 7 && getMinDIstance(s,"calc", "goods") == 8);
 	    
 	  }
 	  
 	  private static int getMinDIstance(String s, String w1,String w2){   
 	    String words[]=s.split(" ");
-	    System.out.println("words length:"+words.length);
+	  //  System.out.println("words length:"+words.length);
 	    int d1=0,d2=Integer.MAX_VALUE,minDistance=Integer.MAX_VALUE,cur=0;	    
 	    for(String word:words){ 
 	      if(word.equals(" ")) cur++;

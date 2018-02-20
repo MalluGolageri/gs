@@ -20,8 +20,8 @@ public class BiggestNumber {
 		for (int i = 0; i < nums.length; i++) {
 			arr[i] = String.valueOf(nums[i]);
 			System.out.println(arr[i]);
-		}
-		
+		}		
+				
 		Arrays.sort(arr,new Comparator<String>() {
 			public int compare(String a, String b) {
 				return (b + a).compareTo(a + b);	

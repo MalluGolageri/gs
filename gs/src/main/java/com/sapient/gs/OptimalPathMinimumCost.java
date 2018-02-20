@@ -25,7 +25,6 @@ public class OptimalPathMinimumCost {
 	}
 
 	private static int getOptimalPath(int[][] ar, int m, int n) {
-
 		int[][] totalCost = new int[m + 1][n + 1];
 		//fill first row
 		totalCost[0][0] = ar[0][0];

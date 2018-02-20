@@ -6,7 +6,7 @@ public class LargestNonRepeatingString {
 	public static void main(String[] args) {
 		String str = "aaabcbdeaff ";
 		System.out.println(largestStringwithUniquechar(str));
-	}
+	}  
 
 	public static String largestStringwithUniquechar(String str) {
 		Map<Character, Integer> map = new HashMap<Character, Integer>();

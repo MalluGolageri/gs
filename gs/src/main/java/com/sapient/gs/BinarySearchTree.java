@@ -4,7 +4,6 @@ class BinarySearchTree {
 		public Node(int data) {
 			this.data = data;
 		}
-
 		int data;
 		Node left;
 		Node right;
@@ -42,17 +41,15 @@ class BinarySearchTree {
 	}
 
 	public static void main(String[] args) {
-
 		Node root = new Node(20);
 		root.left = new Node(10);
 		root.right = new Node(30);
-
+		
 		insert(root, 40);
 		insert(root, 25);
 		insert(root, 27);
 		insert(root, -23);
 		display(root);
-
 		System.out.print(contains(root, -23));
 
 	}

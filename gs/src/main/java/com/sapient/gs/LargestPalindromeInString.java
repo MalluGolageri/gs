@@ -10,15 +10,14 @@ public class LargestPalindromeInString {
 	    System.out.println(largestPalindromeString("mmmm11111"));
 	  }
 	  
-	  private static String largestPalindromeString(String str){
-	   
+	  private static String largestPalindromeString(String str){	   
 	    int start=0,end=0;    
 	    String largestPal="";	    
 	    for(int i=1;i<str.length();i++){	     
 	      start=i-1;
 	      end=i+1;
 	      
-	      //handle even length palindrome
+	      //handle odd length palindrome
 	      while(start >=0 && end < str.length() && str.charAt(start)==str.charAt(end)){        
 	        String pal=str.substring(start,end+1);
 	        largestPal = pal.length() > largestPal.length() ? pal : largestPal;        

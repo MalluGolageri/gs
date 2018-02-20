@@ -12,8 +12,7 @@ public class PairCountForGivenSum {
 	    
 	    }
 
-	  static int getCountOfPairsForTheGivenSum(int[] input,int sum){
-	    
+	  static int getCountOfPairsForTheGivenSum(int[] input,int sum){	    
 	    Map<Integer,Integer> map = new HashMap<Integer, Integer>();
 	    int length = input.length;
 	    int count= 0;
