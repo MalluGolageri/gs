@@ -17,7 +17,6 @@ public class PascalTriangleIterative {
 	}
 
 	private static int getElementFromPascal(int row, int col) {
-
 		int rows = row + 1;
 		int n = rows;
 		int[][] ar = new int[rows][rows];

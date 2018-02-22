@@ -17,14 +17,14 @@ public class LongestWordFromDictionary {
 
 	static Set<String> longestWord(String letters, Dictionary dict) {
 		// find all possible permutation of string "dogs"
-		permute(letters.toCharArray(), 0, letters.length(), dict);
+		permute(letters.toCharArray(), 0, dict);
 		System.out.println(result.toString());
 		return result;
 	}
 	
 
-	static void permute(char[] arr, int left, int right, Dictionary dict) {
-		if (left == right) {
+	static void permute(char[] arr, int index, Dictionary dict) {
+		if (index == arr.length) {
 			String s1 = "";
 			for (int i = 0; i < arr.length; i++) {
 				s1 = s1 + arr[i];
@@ -34,10 +34,10 @@ public class LongestWordFromDictionary {
 			// swapping first and adjacent character
 			// ABC-> BAC-> BCA
 			// ACB-> CAB-> CBA			
-			for (int i = left; i < right; i++) {
-				arr = swap(arr, left, i);
-				permute(arr, left + 1, right, dict);
-				arr = swap(arr, left, i);
+			for (int i = index; i < arr.length; i++) {
+				arr = swap(arr, index, i);
+				permute(arr, index + 1, dict);
+				arr = swap(arr, index, i);
 			}
 		}
 	}
