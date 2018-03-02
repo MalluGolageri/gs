@@ -25,7 +25,6 @@ public class AddFractions {
 		int min = Math.min(num, den);
 		int gcd = 1;
 		for (int i = min; i > 0; i--) {
-
 			if (max % i == 0 && min % i == 0)
 				return i;
 		}

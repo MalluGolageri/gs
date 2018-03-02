@@ -14,6 +14,10 @@ public class OccurenceFollowedByChars {
 //		}		
 //		map.forEach((key,value)->{System.out.print(""+value+key);});
 //		System.out.println();
+		
+		char[] c=new char[2];		
+		char ch=(char)(4 +'0');
+		System.out.println("char:"+ch);
 		countChars(s);
 	}
 	

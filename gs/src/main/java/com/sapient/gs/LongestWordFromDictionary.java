@@ -7,12 +7,14 @@ import java.util.Set;
 public class LongestWordFromDictionary {
 	static HashSet<String> result = new HashSet<String>();
 	static int maxlen = 0;
-
-	public static void main(String[] args) {
+static int count=0;
+	public static void main(String[] args) {		
 		if (doTestPass())
 			System.out.println("Test Passed");
 		else
 			System.out.println("Test Failded");
+		
+		System.out.println("count:"+count);
 	}
 
 	static Set<String> longestWord(String letters, Dictionary dict) {
@@ -31,10 +33,12 @@ public class LongestWordFromDictionary {
 			}
 			combination(s1.toCharArray(), dict);
 		} else {
+			
 			// swapping first and adjacent character
 			// ABC-> BAC-> BCA
 			// ACB-> CAB-> CBA			
 			for (int i = index; i < arr.length; i++) {
+				count++;
 				arr = swap(arr, index, i);
 				permute(arr, index + 1, dict);
 				arr = swap(arr, index, i);
@@ -45,6 +49,7 @@ public class LongestWordFromDictionary {
 	private static void combination(char[] charArray, Dictionary dict) {
 		String str = "";
 		for (int i = 0; i < charArray.length; i++) {
+			count++;
 			str = str + charArray[i];
 			if (dict.contains(str)) {
 				if (str.length() == maxlen) {
@@ -68,11 +73,11 @@ public class LongestWordFromDictionary {
 
 	public static boolean doTestPass() {
 		Dictionary dict = new Dictionary(
-				new String[] { "to", "toe", "too", "toes", "doe", "dogs", "god", "dog", "book", "banana" });
+				new String[] { "a", "at", "rat", "sky"});
 
 		boolean result = new HashSet<String>(Arrays.asList("toe", "doe", "dog", "god", "too"))
-				.equals(longestWord("oegdot", dict));
-		result = result && new HashSet<String>(Arrays.asList("toes", "dogs")).equals(longestWord("oegdots", dict));
+				.equals(longestWord("ahktfrsy", dict));				
+		result = result && new HashSet<String>(Arrays.asList("toes", "dogs")).equals(longestWord("oegdots", dict));				
 		return result;
 	}
 }

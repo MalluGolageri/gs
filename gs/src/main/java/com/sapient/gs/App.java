@@ -9,62 +9,116 @@ import java.util.stream.Collectors;
  *
  */
 public class App {
-	// public static void main(String[] args) {
-	// int sum = 16;
-	// int[] ar = { 1, 2, 3, 4, 5, 6, 12, 15, 7 };
-	// System.out.print("\n" + minimumSubArrayLength(ar, sum));
-	// }
-
-	public static void main(String[] args) {
-		// String s="abcdecabfg";
-		// System.out.print(firstUniqueChar(s,new LinkedHashMap<Character,Integer>()));
+	public static void main(String[] args) throws CloneNotSupportedException {
+		Map<Employee, Double> map = new HashMap<Employee, Double>();
+		
+		System.out.println("ab:"+"ab".hashCode()); //97*31+98=3105
+		System.out.println("bC:"+"bC".hashCode()); // 98*31+67 = 3105
+		Employee e1 = new Employee(10, "mallu");
+		Employee e2 = new Employee(20, "ab");
+		Employee e3 = new Employee(20, "bC");
+		System.out.println("e1:"+e1.hashCode()+" e2:"+e2.hashCode());
+		map.put(e1, (double) 10000);
+		map.put(e2, (double) 20000);
+		map.put(e3, (double) 30000);
+		
+		map.forEach((k, v) -> {
+			System.out.println(k.getId() + " " + v);
+		});
+		
 		//
-		int[] a = { 2, 34, 4, 7, 5, 51 };
-		System.out.println(biggestNumber(a));
+		
+		Course c=new Course("maths");
+		Student s=new Student(c);
+		
+		Student s2=(Student)s.clone();
+		System.out.println(s2.course.name);
+		s2.course.name="Hindi";
+		System.out.println(s.course.name);
+		
+	}
+}
 
+class Employee {
+	private final String name;
+	private final int id;
+	private double salary;
+
+	public Employee(int id, String name) {
+		this.name = name;
+		this.id = id;
 	}
 
-	private static int biggestNumber(int[] a) {
-		List<Integer> list=new ArrayList<Integer>(){{ for (int i : a) add(i); }};
-		Collections.sort(list , new Comparator<Integer>() {			
-			public int compare(Integer i1,Integer i2) {				
-				if(i1>i2) return 1;
-				if(i2>i1) return -1;
-				return 0;
-			}
-		});		
-		list.forEach(System.out::print);
-		return 0;
+	public int getId() {
+		return id;
 	}
 
-	private static char firstUniqueChar(String s, Map<Character, Integer> map) {
-		for (char c : s.toCharArray())
-			map.put(c, map.containsKey(c) ? map.get(c) + 1 : 1);
-		return map.entrySet().stream().filter(e -> (e.getValue() == 1)).findFirst().get().getKey();
+	// public void setId(int id) {
+	// this.id = id;
+	// }
+	// private void setName(String name) {
+	// this.name = name;
+	// }
+	private String getName() {
+		return name;
 	}
 
-	private static int minimumSubArrayLength(int[] ar, int sum) {
-		int startIndex = 0, endIndex = 0, minLength = Integer.MAX_VALUE, res = 0, start = 0;
-		;
-		while (endIndex < ar.length) {
-			while (res <= sum && endIndex < ar.length) {
-				res += ar[endIndex++];
-			}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
 
-			while (res > sum && startIndex < ar.length) {
-				res = res - ar[startIndex++];
-				if ((endIndex - startIndex) < minLength && res > sum) {
-					minLength = endIndex - startIndex;
-					start = startIndex;
-					// System.out.println("startIndex:"+startIndex+" endIndex:"+endIndex+"
-					// minLength:"+minLength);
-				}
-			}
-		}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
 
-		for (int i = start; i < (start + minLength); i++) {
-			System.out.print(ar[i] + ",");
-		}
-		return minLength;
+//	@Override
+//	public int hashCode() {		
+//		return Objects.hash(this.getId(),this.getName());
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		Employee e = (Employee) obj;
+//		return e.getName().equals(this.getName()) && e.getId() == id;
+//	}
+}
+
+
+class Student implements Cloneable {
+	Course course;
+	public Student(Course course){
+		this.course=course;
+	}	
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+}
+
+ class Course {
+	String name;
+	public Course(String name) {
+		this.name=name;
 	}
 }

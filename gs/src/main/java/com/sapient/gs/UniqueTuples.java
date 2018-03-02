@@ -13,10 +13,7 @@ public class UniqueTuples {
 
 	private static void printUniqueTuples(String s,int n) {
 		Set<String> uniqueTuples=new LinkedHashSet<>();		
-		for(int i=0;i<=(s.length()-n);i++) 
-			uniqueTuples.add(s.substring(i, n+i));
+		for(int i=0;i<=(s.length()-n);i++) uniqueTuples.add(s.substring(i, n+i));
 		uniqueTuples.forEach(System.out::println);
 	}
-
-	
 }

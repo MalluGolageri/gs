@@ -6,7 +6,9 @@ public class MissingCharactersInPangram {
 		// TODO Auto-generated constructor stub
 	}
 	public static void main(String[] args) {    
-	    String s="abcdefghimnopqrstuvwxy";
+	    String s="abcdefghi  mnopqrstuvwxy";
+	    s=s.replaceAll(" +", "");
+	    System.out.println(s);
 	    s=s.toLowerCase();
 	    StringBuilder sb=new StringBuilder();
 	    for ( char c='a'; c<='z' ; c++){      

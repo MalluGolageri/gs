@@ -2,9 +2,8 @@ package com.sapient.gs;
 
 public class LargestPalindromeInString {
 	public static void main(String[] args) {
-	    
-	    
-	    System.out.println(largestPalindromeString("abcgadagxyz"));
+	    	    
+	    System.out.println(largestPalindromeString("abcbabgadagxyz"));
 	    System.out.println(largestPalindromeString("221233214569"));
 	    System.out.println(largestPalindromeString("hellow"));
 	    System.out.println(largestPalindromeString("mmmm11111"));

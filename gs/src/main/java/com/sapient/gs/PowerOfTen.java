@@ -8,13 +8,14 @@ public class PowerOfTen {
 
 	public static void main(String[] args) {
 
-		double n = -0.001;
+		double n = -0;
 		boolean negative = false;
 		n = Math.abs(n);
 		System.out.println(isPowerOfTen(n));
 	}
 
 	private static boolean isPowerOfTen(double n) {
+		if(n==0) return true;
 		if (n < 1) {
 			while (n < 1)
 				n = n * 10;
