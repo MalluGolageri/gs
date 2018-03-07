@@ -16,6 +16,20 @@ class BinarySearchTree {
 			display(root.right);
 		}
 	}
+	private static void preOrder(Node root) {
+		if (root != null) {
+			System.out.print(root.data + " ");			
+			preOrder(root.left);			
+			preOrder(root.right);
+		}
+	}
+	private static void postOrder(Node root) {
+		if (root != null) {
+			postOrder(root.left);			
+			postOrder(root.right);
+			System.out.print(root.data + " ");
+		}
+	}
 
 	private static boolean contains(Node root, int key) {
 		while (root != null) {
@@ -41,15 +55,16 @@ class BinarySearchTree {
 	}
 
 	public static void main(String[] args) {
-		Node root = new Node(20);
-		root.left = new Node(10);
-		root.right = new Node(30);
+		Node root = null;		
+		root=insert(root, 8);
+		insert(root, 12);
+		insert(root, 24);
+		insert(root, 18);
 		
-		insert(root, 40);
-		insert(root, 25);
-		insert(root, 27);
-		insert(root, -23);
-		display(root);
+		insert(root, 7);
+		insert(root, 17);
+		insert(root, 36);
+		preOrder(root);
 		System.out.print(contains(root, -23));
 
 	}

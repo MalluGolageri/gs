@@ -10,31 +10,32 @@ import java.util.stream.Collectors;
  */
 public class App {
 	public static void main(String[] args) throws CloneNotSupportedException {
-		Map<Employee, Double> map = new HashMap<Employee, Double>();
-		
-		System.out.println("ab:"+"ab".hashCode()); //97*31+98=3105
-		System.out.println("bC:"+"bC".hashCode()); // 98*31+67 = 3105
-		Employee e1 = new Employee(10, "mallu");
-		Employee e2 = new Employee(20, "ab");
-		Employee e3 = new Employee(20, "bC");
-		System.out.println("e1:"+e1.hashCode()+" e2:"+e2.hashCode());
-		map.put(e1, (double) 10000);
-		map.put(e2, (double) 20000);
-		map.put(e3, (double) 30000);
-		
-		map.forEach((k, v) -> {
-			System.out.println(k.getId() + " " + v);
-		});
-		
-		//
-		
-		Course c=new Course("maths");
-		Student s=new Student(c);
-		
-		Student s2=(Student)s.clone();
-		System.out.println(s2.course.name);
-		s2.course.name="Hindi";
-		System.out.println(s.course.name);
+//		Map<Employee, Double> map = new HashMap<Employee, Double>();
+//		
+//		System.out.println("ab:"+"ab".hashCode()); //97*31+98=3105
+//		System.out.println("bC:"+"bC".hashCode()); // 98*31+67 = 3105
+//		Employee e1 = new Employee(10, "mallu");
+//		Employee e2 = new Employee(20, "ab");
+//		Employee e3 = new Employee(20, "bC");
+//		System.out.println("e1:"+e1.hashCode()+" e2:"+e2.hashCode());
+//		map.put(e1, (double) 10000);
+//		map.put(e2, (double) 20000);
+//		map.put(e3, (double) 30000);
+//		
+//		map.forEach((k, v) -> {
+//			System.out.println(k.getId() + " " + v);
+//		});
+//		
+//		//
+//		
+//		Course c=new Course("maths");
+//		Student s=new Student(c);
+//		
+//		Student s2=(Student)s.clone();
+//		System.out.println(s2.course.name);
+//		s2.course.name="Hindi";
+//		System.out.println(s.course.name);
+		System.out.println((2^4));
 		
 	}
 }
