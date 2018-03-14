@@ -9,7 +9,7 @@ import java.io.*;
 /* You may add any imports here, if you wish, but only from the 
    standard library */
 
-public class Main {
+public class OutdatedServerCount {
 	public static int processData(ArrayList<String> array) {
 		/*
 		 * Modify this method to process `array` as indicated in the question. At the
