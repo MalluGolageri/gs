@@ -9,7 +9,7 @@ public class PascalTriangle {
 	    System.out.println("At row:"+row+", position:"+col+"-->"+element);
 	  }
 	  
-	  static int getElementFromPascalTree(int default_rows,int col,int row){
+	  private static int getElementFromPascalTree(int default_rows,int col,int row){
 	      if(col > row){
 	          return 0;
 	      }

@@ -5,7 +5,7 @@ public class LongestFirstRepeatingIndex {
 
 	public static void main(String[] args) {
 
-		String s="aaaabbbcccc";
+		String s="aaabbbcccc";
 	    char[] chars=s.toCharArray();
 	    int startIndex=0,maxLength=0;
 	    

@@ -5,14 +5,14 @@ import java.util.*;
 public class PairCountForGivenSum {
 	public static void main(String[] args) {
 	    
-	    int[] input = {-2,8,5,3,-4,-14,-9};
+	    int[] input = {-2,8,5,3,-4,-14,-9,-3,-3,60,-66};
 	    int sum = -6;
 	    int countOfPairs  = getCountOfPairsForTheGivenSum(input,sum);
 	    System.out.println("Pair count:"+countOfPairs);
 	    
 	    }
 
-	  static int getCountOfPairsForTheGivenSum(int[] input,int sum){	    
+	  private static int getCountOfPairsForTheGivenSum(int[] input,int sum){
 	    Map<Integer,Integer> map = new HashMap<Integer, Integer>();
 	    int length = input.length;
 	    int count= 0;

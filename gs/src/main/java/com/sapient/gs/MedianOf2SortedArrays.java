@@ -2,7 +2,7 @@ package com.sapient.gs;
 
 public class MedianOf2SortedArrays {
 	 // function to calculate median
-    static int getMedian(int ar1[], int ar2[], int n)
+    private static int getMedian(int ar1[], int ar2[], int n)
     {   
         int i = 0;  
         int j = 0; 
